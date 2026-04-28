@@ -1,0 +1,203 @@
+:root {
+  /* Color Palette - Warm Cheese Cat Theme */
+  --bg-color: #fff9f0;
+  --primary-color: #ffb454;
+  --secondary-color: #ff9a3d;
+  --text-dark: #5c4b3a;
+  --text-light: #8f7961;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --shadow: 0 8px 24px rgba(255, 154, 61, 0.15);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --border-radius: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(255, 180, 84, 0.08), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(255, 180, 84, 0.08), transparent 25%);
+  background-attachment: fixed;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+.app-container {
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  padding: 30px 0 40px;
+  position: relative;
+}
+
+.header::after {
+  content: "🐈";
+  font-size: 40px;
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  opacity: 0.2;
+  transform: rotate(15deg);
+}
+
+.title {
+  font-family: 'Jua', sans-serif;
+  font-size: 32px;
+  color: var(--secondary-color);
+  margin-bottom: 8px;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8);
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+/* Main Content & Accordion */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.accordion-item {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.accordion-item.active {
+  border-color: rgba(255, 180, 84, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(255, 154, 61, 0.2);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Jua', sans-serif;
+  font-size: 18px;
+  color: var(--text-dark);
+  transition: var(--transition);
+}
+
+.accordion-header:active {
+  background: rgba(255, 180, 84, 0.1);
+}
+
+.icon {
+  font-size: 24px;
+  margin-right: 12px;
+  background: var(--bg-color);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.text {
+  flex-grow: 1;
+}
+
+.toggle-icon {
+  font-size: 14px;
+  color: var(--primary-color);
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.accordion-item.active .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255, 249, 240, 0.5) 100%);
+}
+
+.content-inner {
+  padding: 0 24px 24px 24px;
+  font-size: 15px;
+}
+
+.content-inner ul {
+  list-style: none;
+}
+
+.content-inner li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.content-inner li::before {
+  content: "🐾";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.content-inner li:last-child {
+  margin-bottom: 0;
+}
+
+.content-inner strong {
+  color: var(--secondary-color);
+  font-weight: 700;
+  background: rgba(255, 180, 84, 0.2);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 0 20px;
+  font-family: 'Jua', sans-serif;
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+/* Micro-animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.header .icon {
+  animation: float 3s ease-in-out infinite;
+}
