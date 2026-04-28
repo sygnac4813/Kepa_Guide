@@ -23,6 +23,8 @@ body {
   background-color: var(--bg-color);
   color: var(--text-dark);
   line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: break-word;
   background-image: 
     radial-gradient(circle at 15% 50%, rgba(255, 180, 84, 0.08), transparent 25%),
     radial-gradient(circle at 85% 30%, rgba(255, 180, 84, 0.08), transparent 25%);
